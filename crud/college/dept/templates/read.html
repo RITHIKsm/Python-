@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <h1>Read Page from Products</h1>
+    <table border="1" class="table table-bordered">
+        <tr>
+            <th>S.No</th>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+        <td>{{ forloop.counter }}</td>
+            <td>{{ i.pro_id }}</td>
+        <td>{{ i.product_name }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.category }}</td>
+        <td>{{ i.price }}</td>
+            <td>{{ i.stock }}</td>
+        <td>
+            <a href="{%  url 'update' i.pro_id %}">
+                <button class="btn btn-info">Edit</button>
+            </a>
+        </td>
+        <td>
+            <a href="{%  url 'delete' i.pro_id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+<a href="/ab">Back to Home Page</a>
+</div>
+</body>
+</html>
